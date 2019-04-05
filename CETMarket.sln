@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CET37Market.Common", "CET37Market.Common\CET37Market.Common.csproj", "{F0002BD0-CD65-4971-B4BB-08CE1D21A476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CET37Market.Common", "CET37Market.Common\CET37Market.Common.csproj", "{F0002BD0-CD65-4971-B4BB-08CE1D21A476}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{1D83BFE0-66C7-45DD-9FA2-6FC8CA1FF7D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{3A1F5D35-0BE8-452A-9D61-8A90C9C9993D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.Web", "Cet37Market.Web\Cet37Market.Web.csproj", "{D54753CE-E6FC-4793-A6D4-3E6FA20C8A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cet37Market.Web", "Cet37Market.Web\Cet37Market.Web.csproj", "{D54753CE-E6FC-4793-A6D4-3E6FA20C8A0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classic", "Classic", "{A92B780E-659E-476A-B8F7-86E50B742A61}"
 EndProject
@@ -19,13 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.UIForms.Android
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.UIForms.iOS", "Cet37Market.UIForms\Cet37Market.UIForms.iOS\Cet37Market.UIForms.iOS.csproj", "{353A5CF6-2591-45AD-A2CD-4397324E725E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.UIForms", "Cet37Market.UIForms\Cet37Market.UIForms\Cet37Market.UIForms.csproj", "{1470BE33-0799-4A76-9EED-0DF294A07B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cet37Market.UIForms", "Cet37Market.UIForms\Cet37Market.UIForms\Cet37Market.UIForms.csproj", "{1470BE33-0799-4A76-9EED-0DF294A07B5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.UIClassic.Android", "Cet37Market.UIClassic.Android\Cet37Market.UIClassic.Android.csproj", "{4065C6A9-9D4B-4C39-8235-85C9ACF36F9B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.UIClassic.iOS", "Cet37Market.UIClassic.iOS\Cet37Market.UIClassic.iOS.csproj", "{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cet37Market.UIClassic", "Cet37Market.UIClassic\Cet37Market.UIClassic.csproj", "{D33A9609-9B91-4679-84B3-9214F71CB96E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cet37Market.UIClassic", "Cet37Market.UIClassic\Cet37Market.UIClassic.csproj", "{D33A9609-9B91-4679-84B3-9214F71CB96E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
