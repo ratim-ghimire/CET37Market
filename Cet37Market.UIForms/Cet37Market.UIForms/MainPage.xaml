@@ -2,13 +2,130 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Cet37Market.UIForms"
-             x:Class="Cet37Market.UIForms.MainPage">
+             x:Class="Cet37Market.UIForms.MainPage"
+             Title="Clementina">
+    
+    <!-- Here the controls are called VIews -->
+    <!-- Pages - View- Layout -->
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <!--<Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image Aspect="AspectFill" Source="HeaderBackground.png"></Image>
+        <Image Aspect="Fill" Source="CurvedMask.png" VerticalOptions="End" Margin="0,0,0,0"></Image>
+        <Image  HorizontalOptions="Center" HeightRequest="100" TranslationY="50" WidthRequest="100" VerticalOptions="End" Source="ProfilePic.png"></Image>
+
+        <StackLayout Grid.Row="1" 
+                     Padding="0,50,0,0" 
+                     HorizontalOptions="Center">
+
+            <Label Style="{StaticResource ProfileTagLabel}" Text="Clementina"></Label>
+            <Label Style="{StaticResource ProfileNameLabel}" Margin="0,-5" Text="Adoro a pila"></Label>
+
+        </StackLayout>
+    
+    
+    </Grid>-->
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Editar" Order="Primary" Clicked="ToolbarItem_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS">edit.png</On>
+                    <On Platform="Android">ic_action_edit.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+        <ToolbarItem Text="Procurar" Order="Primary" Clicked="ToolbarItem_Clicked_1">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS">search.png</On>
+                    <On Platform="Android">ic_action_search.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+        <ToolbarItem Text="Refrescar" Order="Primary" Clicked="ToolbarItem_Clicked_2">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS">reload.png</On>
+                    <On Platform="Android">ic_action_refresh.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+        <ToolbarItem Text="Explorar"  Order="Secondary" Clicked="ToolbarItem_Clicked_3"></ToolbarItem>
+        <ToolbarItem Text="Envolver"  Order="Secondary" Clicked="ToolbarItem_Clicked_4"></ToolbarItem>
+        <ToolbarItem Text="Descobrir" Order="Secondary" Clicked="ToolbarItem_Clicked_5"></ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Aspect="AspectFill" Source="HeaderBackground.png"/>
+
+            <Image Aspect="Fill" 
+               Margin="0,0,0,0" 
+               Source="CurvedMask.png"
+               VerticalOptions="End"/>
+
+            <Image HeightRequest="100"
+               HorizontalOptions="Center"
+               Source="ProfilePic.png"
+               TranslationY="50"
+               VerticalOptions="End"
+               WidthRequest="100"/>
+
+            <StackLayout Grid.Row="1" Padding="0,50,0,0" HorizontalOptions="Center">
+                <Label Style="{StaticResource ProfileNameLabel}" Text="Clementina"/>
+                <Label Margin="0,-5" Style="{StaticResource ProfileTagLabel}" Text="Adoro o Benfica!"/>
+            </StackLayout>
+
+            <Grid Grid.Row="2" Margin="0,30" ColumnSpacing="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout>
+                    <Label Style="{StaticResource StatsNumberLabel}" Text="33"/>
+                    <Label Style="{StaticResource StatsCaptionLabel}" Text="Gostos"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1">
+                    <Label Style="{StaticResource StatsNumberLabel}" Text="94"/>
+                    <Label Style="{StaticResource StatsCaptionLabel}" Text="Online"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="2">
+                    <Label x:Name="lblFollowers" Style="{StaticResource StatsNumberLabel}" Text="957"/>
+                    <Label Style="{StaticResource StatsCaptionLabel}" Text="Subscitores"/>
+                </StackLayout>
+
+            </Grid>
+
+            <Label Margin="20,0" Grid.Row="3" Style="{StaticResource MainBodyLabel}"
+               Text="Lorem Ipsum has been the industry's standard dummy ext ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."/>
+
+            <Button Grid.Row="4" Margin="20" Style="{StaticResource FollowButton}" Text="Seguir" Clicked="Button_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+
 
 </ContentPage>
