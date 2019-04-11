@@ -45,7 +45,8 @@ namespace Cet37Market.Web
             //DefaultConnection is defined in Json- appsettings.json
             services.AddDbContext<DataContext>(cfg =>
             {
-                cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")); //Connects to preferred database engine with given connection string
+                //cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")); //Connects to preferred database engine with given connection string
+                cfg.UseSqlServer(this.Configuration.GetConnectionString("SmartAspConnection")); //Connects to preferred database engine with given connection string, change this if want to use local database with DefaultConnection
             });
 
             //Registering Service create in another side 

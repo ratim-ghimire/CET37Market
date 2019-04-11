@@ -27,7 +27,10 @@
             @Html.DisplayNameFor(model => model.ImageURL)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImageURL)
+            @if (!string.IsNullOrEmpty(Model.ImageURL))
+            {
+                <img src="@Url.Content(Model.ImageURL)" alt="Image" style="width:100px; height:150px; max-width:100%;height:auto;" />
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.LastPurchase)

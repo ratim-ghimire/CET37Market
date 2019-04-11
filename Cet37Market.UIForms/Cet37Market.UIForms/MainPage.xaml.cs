@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Cet37Market.UIForms
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage 
     {
         public MainPage()
         {

@@ -8,6 +8,6 @@ namespace Cet37Market.Web.Data
 {
     public interface IProductRepository:IGenericRepository<Product>
     {
-
+        IQueryable GetAllWithUsers();
     }
 }
