@@ -1,18 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra ="clr-namespace:Cet37Market.UIForms.Infrastructure"
              x:Class="Cet37Market.UIForms.App">
+    
     <Application.Resources> <!--Equivalent to CSS in HTML Styling sheets-->
         <ResourceDictionary>
 
+            
+            <!--Locator-->
+            <infra:InstanceLocator x:Key="Locator"/>
             <!--Cores-->
             <Color x:Key="HeaderTextColor">#585858</Color>
 
-            <Color x:Key="BodyTextColor">#C3C3C3</Color>
+            <Color x:Key="BodyTextColor">#000000</Color>
 
             <Color x:Key="ButtonBackgroundColor">#5992FF</Color>
 
-            <Color x:Key="BackgroundColor">White</Color>
+            <Color x:Key="BackgroundColor">#E9967A</Color>
 
             <!--Fonts usadas-->
             <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">

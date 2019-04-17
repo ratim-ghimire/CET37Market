@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Cet37Market.Web.Data;
+﻿using Cet37Market.Web.Data;
 using Cet37Market.Web.Data.Entities;
+using Cet37Market.Web.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -57,6 +53,7 @@ namespace Cet37Market.Web
             //injection will be executed according to class after comma and will be saved
             //will be available in project all time during its execution
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IUserHelper, UserHelper>();
             services.AddScoped<ICountryRepository, CountryRepository>();
 
 

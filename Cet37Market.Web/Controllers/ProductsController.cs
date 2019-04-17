@@ -8,10 +8,12 @@
     using Cet37Market.Web.Models;
     using System.IO;
     using System;
+    using Cet37Market.Web.Helpers;
 
     public class ProductsController : Controller
     {
         private readonly IProductRepository productRepository;
+        private readonly IUserHelper userHelper;
 
         //private readonly IRepository repository;
 
@@ -20,9 +22,10 @@
         //    this.repository = repository;
         //}
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IProductRepository productRepository, IUserHelper userHelper)
         {
             this.productRepository = productRepository;
+            this.userHelper = userHelper;
         }
         // GET: Products
         public IActionResult Index()
@@ -83,7 +86,7 @@
                 }
 
                 var product = this.ToProduct(view, path);
-
+                product.User = await this.userHelper.GetUserByEmail("ratimghimire@gmail.com");
                 await this.productRepository.CreateAsync(product);
                 return RedirectToAction(nameof(Index));
             }
@@ -172,7 +175,7 @@
                     }
 
                     var product = this.ToProduct(view, path);
-
+                    product.User = await this.userHelper.GetUserByEmail("ratimghimire@gmail.com");
                     await productRepository.UpdateAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)

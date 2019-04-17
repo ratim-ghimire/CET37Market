@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+    using Cet37Market.Web.Helpers;
     using Entities;
     using Microsoft.AspNetCore.Identity;
 
@@ -10,13 +11,13 @@
     {
         //Seeding the database with datas if data doesnot exists
         public readonly DataContext context;
-        private readonly UserManager<User> userManager;
+        private readonly IUserHelper userHelper;
         private Random random;
         
-        public SeedDb(DataContext context, UserManager<User> userManager )
+        public SeedDb(DataContext context, IUserHelper userHelper)
         {
             this.context = context;
-            this.userManager = userManager;  // Usermanager não precisa de injetar pq faz parte da Net core
+            this.userHelper = userHelper; // Usermanager não precisa de injetar pq faz parte da Net core
             random = new Random();
         }
         
@@ -24,7 +25,7 @@
         public async Task SeedAsync()
         {
             await this.context.Database.EnsureCreatedAsync();
-            var user = await this.userManager.FindByEmailAsync("ratimghimire@gmail.com");
+            var user = await this.userHelper.GetUserByEmail("ratimghimire@gmail.com");
 
             if(user == null)
             {
@@ -37,7 +38,7 @@
                     PhoneNumber="123456789"
                 };
 
-                var result = await this.userManager.CreateAsync(user, "123456");
+                var result = await this.userHelper.AddUserAsync(user, "123456");
                 //Para ver se resultou
 
                 if(result != IdentityResult.Success)
