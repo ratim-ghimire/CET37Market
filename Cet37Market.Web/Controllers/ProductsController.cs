@@ -9,7 +9,9 @@
     using System.IO;
     using System;
     using Cet37Market.Web.Helpers;
+    using Microsoft.AspNetCore.Authorization;
 
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IProductRepository productRepository;
@@ -86,7 +88,7 @@
                 }
 
                 var product = this.ToProduct(view, path);
-                product.User = await this.userHelper.GetUserByEmail("ratimghimire@gmail.com");
+                product.User = await this.userHelper.GetUserByEmail(this.User.Identity.Name);
                 await this.productRepository.CreateAsync(product);
                 return RedirectToAction(nameof(Index));
             }
@@ -175,7 +177,7 @@
                     }
 
                     var product = this.ToProduct(view, path);
-                    product.User = await this.userHelper.GetUserByEmail("ratimghimire@gmail.com");
+                    product.User = await this.userHelper.GetUserByEmail(this.User.Identity.Name);
                     await productRepository.UpdateAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)
