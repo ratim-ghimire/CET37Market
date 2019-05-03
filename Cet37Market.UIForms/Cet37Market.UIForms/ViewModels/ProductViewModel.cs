@@ -9,12 +9,13 @@ using Xamarin.Forms;
 
 namespace Cet37Market.UIForms.ViewModels
 {
-    public class ProductViewModel:INotifyPropertyChanged
+    public class ProductViewModel:BaseViewModel
     {
 
         #region Attributes
 
         private ApiService apiService;
+        private NetService netService;
         private ObservableCollection<Product> products;
         private bool isRefreshing;
 
@@ -22,51 +23,30 @@ namespace Cet37Market.UIForms.ViewModels
 
         #region Events
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
 
         #region Properties
+      
+
         //TODO: Colocar inotify generico
         public ObservableCollection<Product> Products
         {
-            get
-            {
-                return products;
-            }
-            set
-            {
-                if (this.products != value)
-                {
-                    this.products = value;
-                    //Proertychanged will be responsible to change the database in  XAML if original data changes
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Products"));
-                }
-            }
+            get => this.products;
+            set => this.SetValue(ref this.products, value);
 
         }
         public bool IsRefreshing
         {
-            get
-            {
-                return this.isRefreshing;
-            }
-            set
-            {
-                if (this.isRefreshing != value)
-                {
-                    this.isRefreshing = value;
-                    //Proertychanged will be responsible to change the database in  XAML if original data changes
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsRefreshing"));
-                }
-            }
+            get => this.isRefreshing;
+            set => this.SetValue(ref this.isRefreshing, value);
 
         }
-
         #endregion
         public ProductViewModel()
         {
             this.apiService = new ApiService();
+            this.netService = new NetService();
             this.LoadProducts();
         }
 
@@ -74,11 +54,29 @@ namespace Cet37Market.UIForms.ViewModels
         {
             this.IsRefreshing = true;
 
+            var connection = this.netService.CheckConnection();
+            if (!connection.Success)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Accept");
+                return;
+            }
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            //Gets the products after login with token
             var response = await this.apiService.GetListAsync<Product>(
-                "http://ratim47-001-site1.gtempurl.com",
+                url,
                 "/api",
-                "/Products"
+                "/products",
+                "bearer",
+                MainViewModel.GetInstance().Token.Token
                 );
+            //var response = await this.apiService.GetListAsync<Product>(
+            //    "http://ratim47-001-site1.gtempurl.com",
+            //    "/api",
+            //    "/Products"
+            //    );
 
             this.IsRefreshing = false;
             if (!response.Success)

@@ -10,6 +10,14 @@
             
             <!--Locator-->
             <infra:InstanceLocator x:Key="Locator"/>
+            
+            <!--Parameters-->
+            <!--Create link of Site url for not repeating the link-->
+            
+            <x:String x:Key="UrlAPI">http://portugalkhabar.online</x:String>
+            
+            
+            
             <!--Cores-->
             <Color x:Key="HeaderTextColor">#585858</Color>
 

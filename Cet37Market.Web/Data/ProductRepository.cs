@@ -14,7 +14,6 @@ namespace Cet37Market.Web.Data
         {
             this.context = context;
         }
-
         public IQueryable GetAllWithUsers()
         {
             return this.context.Products.Include(p => p.User);

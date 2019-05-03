@@ -10,6 +10,10 @@
     <ContentPage.Content>
         <ScrollView BindingContext="{Binding Login}">
         <StackLayout Padding="8">
+                <Image
+                HeightRequest="150"
+                Source="MarketIcon">
+                </Image>
                 <Label
                     Text="Email">
                 </Label>
@@ -26,8 +30,17 @@
                     Placeholder="Enter your password..."
                     Text="{Binding Password}">
                 </Entry>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
                 <Button
+                    BackgroundColor="Navy"
+                    BorderRadius="23"
+                    HeightRequest="46"
+                    TextColor="White"
                     Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding IsEnabled}"
                     Text="Login">
                 </Button>
             </StackLayout>

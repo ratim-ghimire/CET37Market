@@ -9,6 +9,11 @@ namespace Cet37Market.UIForms
 {
     public partial class App : Application  //Code behind responsible for app start
     {
+        //Propety for navigation page of preferred incial page
+        public static NavigationPage Navigator { get; internal set; }
+
+        public static MasterPage Master { get; internal set; }
+
         //common code place for app
         public App()
         {
